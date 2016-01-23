@@ -1,0 +1,32 @@
+body {
+    margin: 50px 350px;
+    background-color: #757575 ;
+}
+.card-panel {
+    background-color: #e57373;
+}
+
+.page-header {
+    padding: 2px;
+}
+
+.form {
+    margin-top: 30px;
+}
+.form-group {
+    width: 50%;
+}
+.form-button {
+    width: 100%;
+}
+
+.posts {
+    padding: 5px 10px;
+}
+.upvote {
+    margin-top: 15px;
+}
+.post-content {
+    font-size: 20px;
+    margin: 0 0 0 10px;
+}

@@ -1,27 +1,27 @@
-app.controller('MainCtrl', ['$scope',
-	function($scope){
-		$scope.test = 'Blog Posts';
+app.controller('MainCtrl', ['$scope', '$stateParams', 'posts',
+	function($scope, $stateParams, posts){
+		$scope.blog_title = 'Blog Posts';
 
-		$scope.posts = [
-			{title: 'post 1', upvotes: 5},
-			{title: 'post 2', upvotes: 2},
-			{title: 'post 3', upvotes: 15},
-			{title: 'post 4', upvotes: 9},
-			{title: 'post 5', upvotes: 4}
-		];
+		$scope.posts = posts.posts[$stateParams.id];
 
 		$scope.addPost = function(){
 			if(!$scope.title || $scope.title === '') { return; }
 
 			$scope.posts.push( {
 				title: $scope.title,
-				link: $scope.link, 
-				upvotes: 0
+				link: $scope.link,
+				upvotes: 0,
+				comments: [
+					{ author: 'Joe', body: 'Cool post!', upvotes: 5 },
+					{ author: 'Bob', body: 'Great idea but everything is wrong!', upvotes: 5 }
+				]
 			} );
 
 			$scope.title = '';
 			$scope.link = '';
 		};
+
+		
 
 		$scope.incrementUpvotes = function(post) {
 			post.upvotes += 1;
